@@ -724,6 +724,56 @@ Skin Doctor Riyadh
       box-shadow: 0 16px 40px -12px rgba(201, 168, 76, 0.12);
     }
 
+    .testimonial-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(245,237,214,0.7));
+      border: 1px solid rgba(201, 168, 76, 0.2);
+      box-shadow: 0 18px 45px -20px rgba(10, 25, 47, 0.22);
+    }
+    .dark .testimonial-card {
+      background: linear-gradient(145deg, rgba(26,54,93,0.92), rgba(10,25,47,0.88));
+      border-color: rgba(201, 168, 76, 0.12);
+    }
+    .testimonial-image {
+      transition: transform 0.5s ease;
+    }
+    .testimonial-card:hover .testimonial-image {
+      transform: scale(1.04);
+    }
+    .testimonial-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(201, 168, 76, 0.95);
+      color: #0A192F;
+      font-size: 0.72rem;
+      font-weight: 800;
+      backdrop-filter: blur(6px);
+    }
+    .testimonial-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(201, 168, 76, 0.12);
+      color: #C9A84C;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: 1px solid rgba(201, 168, 76, 0.18);
+    }
+    .testimonial-quote {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.8;
+    }
+
     /* ===== CERT BADGE ===== */
     .cert-badge {
       display: inline-flex;
@@ -1184,108 +1234,133 @@ Skin Doctor Riyadh
         </div>
 
         <!-- سلايدر تجارب المرضى (مع autoplay) -->
-        <div class="relative overflow-hidden rounded-3xl">
+        <div class="relative overflow-hidden rounded-[32px] border border-gold/10 bg-gradient-to-br from-gold/5 via-white to-gold/10 dark:from-slate-800/60 dark:to-slate-900/80 p-2 sm:p-3">
+            <div class="mb-4 flex flex-col gap-3 rounded-[24px] border border-gold/10 bg-white/70 p-4 shadow-sm dark:bg-slate-900/50 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <div class="inline-flex items-center gap-2 rounded-full bg-gold/10 px-3 py-1 text-xs font-black text-gold">
+                        <i class="fas fa-shield-heart"></i> ثقة المرضى
+                    </div>
+                    <h4 class="mt-2 text-lg font-black text-navy dark:text-white">تجارب واقعية.. نتائج محسوسة.. ثقة متزايدة</h4>
+                </div>
+                <div class="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                    <span class="testimonial-chip"><i class="fas fa-star"></i> 4.9/5</span>
+                    <span class="testimonial-chip"><i class="fas fa-heart"></i> مئات المرضى</span>
+                </div>
+            </div>
+
             <div id="testimonialSlider" class="flex transition-transform duration-700 ease-in-out" style="transform: translateX(0);">
 
                 <!-- بطاقة 1 -->
                 <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
-                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
-                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                    <div class="testimonial-card glass-card p-3 sm:p-4 rounded-[24px] sm:rounded-[28px] transition duration-300">
+                        <div class="relative aspect-video rounded-[20px] overflow-hidden group">
                             <img src="https://drive.google.com/thumbnail?id=1W4Q9NXSF7cfQI0kdofzWobuaH0uHQk1x"
                                  alt="فيديو تجربة مريض"
-                                 class="w-full h-full object-cover"
+                                 class="w-full h-full object-cover testimonial-image"
                                  loading="lazy" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent"></div>
                             <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
                                     onclick="playVideo(this, 'https://drive.google.com/file/d/1W4Q9NXSF7cfQI0kdofzWobuaH0uHQk1x/preview')"
                                     aria-label="تشغيل الفيديو">
                                 <i class="fas fa-play-circle"></i>
                             </button>
                         </div>
+                        <div class="mt-4"></div>
                     </div>
                 </div>
 
                 <!-- بطاقة 2 -->
                 <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
-                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
-                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                    <div class="testimonial-card glass-card p-3 sm:p-4 rounded-[24px] sm:rounded-[28px] transition duration-300">
+                        <div class="relative aspect-video rounded-[20px] overflow-hidden group">
                             <img src="https://drive.google.com/thumbnail?id=1WdgX8niailGHzUXEE0DcpiHrTJo2nlsj"
                                  alt="فيديو تجربة مريض"
-                                 class="w-full h-full object-cover"
+                                 class="w-full h-full object-cover testimonial-image"
                                  loading="lazy" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent"></div>
                             <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
                                     onclick="playVideo(this, 'https://drive.google.com/file/d/1WdgX8niailGHzUXEE0DcpiHrTJo2nlsj/preview')"
                                     aria-label="تشغيل الفيديو">
                                 <i class="fas fa-play-circle"></i>
                             </button>
                         </div>
+                        <div class="mt-4"></div>
                     </div>
                 </div>
 
                 <!-- بطاقة 3 -->
                 <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
-                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
-                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                    <div class="testimonial-card glass-card p-3 sm:p-4 rounded-[24px] sm:rounded-[28px] transition duration-300">
+                        <div class="relative aspect-video rounded-[20px] overflow-hidden group">
                             <img src="https://drive.google.com/thumbnail?id=1G5DIaQGGsqzxSHq-2l1UqSlzS68FMZER"
                                  alt="فيديو تجربة مريض"
-                                 class="w-full h-full object-cover"
+                                 class="w-full h-full object-cover testimonial-image"
                                  loading="lazy" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent"></div>
                             <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
                                     onclick="playVideo(this, 'https://drive.google.com/file/d/1G5DIaQGGsqzxSHq-2l1UqSlzS68FMZER/preview')"
                                     aria-label="تشغيل الفيديو">
                                 <i class="fas fa-play-circle"></i>
                             </button>
                         </div>
+                        <div class="mt-4"></div>
                     </div>
                 </div>
 
                 <!-- بطاقة 4 -->
                 <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
-                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
-                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                    <div class="testimonial-card glass-card p-3 sm:p-4 rounded-[24px] sm:rounded-[28px] transition duration-300">
+                        <div class="relative aspect-video rounded-[20px] overflow-hidden group">
                             <img src="https://drive.google.com/thumbnail?id=1H0ITURU6QMm2Pv8P6mhe1I3s39UIZjOs"
                                  alt="فيديو تجربة مريض"
-                                 class="w-full h-full object-cover"
+                                 class="w-full h-full object-cover testimonial-image"
                                  loading="lazy" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent"></div>
                             <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
                                     onclick="playVideo(this, 'https://drive.google.com/file/d/1H0ITURU6QMm2Pv8P6mhe1I3s39UIZjOs/preview')"
                                     aria-label="تشغيل الفيديو">
                                 <i class="fas fa-play-circle"></i>
                             </button>
                         </div>
+                        <div class="mt-4"></div>
                     </div>
                 </div>
 
                 <!-- بطاقة 5 -->
                 <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
-                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
-                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                    <div class="testimonial-card glass-card p-3 sm:p-4 rounded-[24px] sm:rounded-[28px] transition duration-300">
+                        <div class="relative aspect-video rounded-[20px] overflow-hidden group">
                             <img src="https://drive.google.com/thumbnail?id=1NPzvc54mypHz2l1yiTanb1YombuBZy6v"
                                  alt="فيديو تجربة مريض"
-                                 class="w-full h-full object-cover"
+                                 class="w-full h-full object-cover testimonial-image"
                                  loading="lazy" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent"></div>
                             <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
                                     onclick="playVideo(this, 'https://drive.google.com/file/d/1NPzvc54mypHz2l1yiTanb1YombuBZy6v/preview')"
                                     aria-label="تشغيل الفيديو">
                                 <i class="fas fa-play-circle"></i>
                             </button>
                         </div>
+                        <div class="mt-4"></div>
                     </div>
                 </div>
 
                 <!-- بطاقة 6 -->
                 <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
-                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
-                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                    <div class="testimonial-card glass-card p-3 sm:p-4 rounded-[24px] sm:rounded-[28px] transition duration-300">
+                        <div class="relative aspect-video rounded-[20px] overflow-hidden group">
                             <img src="https://drive.google.com/thumbnail?id=1Reti2h7wshZYhjNx87Is-u7SZFMllq4Z"
                                  alt="فيديو تجربة مريض"
-                                 class="w-full h-full object-cover"
+                                 class="w-full h-full object-cover testimonial-image"
                                  loading="lazy" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent"></div>
                             <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
                                     onclick="playVideo(this, 'https://drive.google.com/file/d/1Reti2h7wshZYhjNx87Is-u7SZFMllq4Z/preview')"
                                     aria-label="تشغيل الفيديو">
                                 <i class="fas fa-play-circle"></i>
                             </button>
                         </div>
+                        <div class="mt-4"></div>
                     </div>
                 </div>
 
