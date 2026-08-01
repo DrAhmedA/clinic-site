@@ -124,16 +124,16 @@ Skin Doctor Riyadh
   <!-- Fonts & Icons (مُحسَّن) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://www.instagram.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
   <!-- Font Awesome 6 (أيقونات احترافية خفيفة) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <!-- Libraries -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/locales/ar.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -194,6 +194,14 @@ Skin Doctor Riyadh
     }
     html {
       scroll-behavior: smooth;
+    }
+    .page-section {
+      content-visibility: auto;
+      contain-intrinsic-size: 1400px;
+    }
+    .glass-card {
+      content-visibility: auto;
+      contain-intrinsic-size: 320px;
     }
     body {
       font-family: 'Cairo', sans-serif;
@@ -2191,6 +2199,66 @@ Skin Doctor Riyadh
   <!-- ======================== SCRIPTS ============================ -->
   <!-- ============================================================ -->
   <script>
+    const loadScript = (src) => new Promise((resolve, reject) => {
+      const existing = document.querySelector(`script[src="${src}"]`);
+      if (existing) {
+        if (existing.dataset.loaded === 'true') return resolve();
+        existing.addEventListener('load', () => resolve(), { once: true });
+        existing.addEventListener('error', () => reject(new Error(`Failed to load ${src}`)), { once: true });
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = src;
+      script.async = true;
+      script.onload = () => {
+        script.dataset.loaded = 'true';
+        resolve();
+      };
+      script.onerror = () => reject(new Error(`Failed to load ${src}`));
+      document.head.appendChild(script);
+    });
+
+    let swiperAssetsPromise = null;
+    let calendarAssetsPromise = null;
+    let instagramEmbedPromise = null;
+
+    function ensureSwiperAssets() {
+      if (window.Swiper) return Promise.resolve();
+      if (!swiperAssetsPromise) {
+        swiperAssetsPromise = Promise.all([
+          loadScript('https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js')
+        ]);
+      }
+      return swiperAssetsPromise;
+    }
+
+    function ensureCalendarAssets() {
+      if (window.FullCalendar) return Promise.resolve();
+      if (!calendarAssetsPromise) {
+        calendarAssetsPromise = Promise.all([
+          loadScript('https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/main.min.js'),
+          loadScript('https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/locales/ar.js')
+        ]);
+      }
+      return calendarAssetsPromise;
+    }
+
+    function ensureInstagramEmbed() {
+      if (window.instgrm || instagramEmbedPromise) {
+        return instagramEmbedPromise || Promise.resolve();
+      }
+      instagramEmbedPromise = new Promise((resolve, reject) => {
+        const script = document.createElement('script');
+        script.src = 'https://www.instagram.com/embed.js';
+        script.async = true;
+        script.defer = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error('Instagram embed failed to load'));
+        document.body.appendChild(script);
+      });
+      return instagramEmbedPromise;
+    }
+
     // ============================================================
     // 1. NAVIGATION
     // ============================================================
@@ -2221,46 +2289,52 @@ Skin Doctor Riyadh
       if (swiperInstance) return;
       const container = document.querySelector('.services-swiper');
       if (!container) return;
-      swiperInstance = new Swiper(container, {
-        slidesPerView: 1,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: { delay: 3000, disableOnInteraction: false },
-        pagination: {
-          el: container.querySelector('.services-pagination'),
-          clickable: true
-        },
-        navigation: {
-          nextEl: container.querySelector('.services-button-next'),
-          prevEl: container.querySelector('.services-button-prev')
-        },
-        breakpoints: {
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 }
-        }
-      });
+      ensureSwiperAssets().then(() => {
+        if (!window.Swiper) return;
+        swiperInstance = new Swiper(container, {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          autoplay: { delay: 3000, disableOnInteraction: false },
+          pagination: {
+            el: container.querySelector('.services-pagination'),
+            clickable: true
+          },
+          navigation: {
+            nextEl: container.querySelector('.services-button-next'),
+            prevEl: container.querySelector('.services-button-prev')
+          },
+          breakpoints: {
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 }
+          }
+        });
+      }).catch(() => {});
     }
 
     function initReviewsSwiper() {
       if (reviewsSwiperInstance) return;
       const container = document.querySelector('.reviewsSwiper');
       if (!container) return;
-      reviewsSwiperInstance = new Swiper(container, {
-        loop: true,
-        autoplay: {
-          delay: 3500,
-          disableOnInteraction: false
-        },
-        pagination: {
-          el: container.querySelector('.reviews-pagination'),
-          clickable: true
-        },
-        breakpoints: {
-          0: { slidesPerView: 1, spaceBetween: 20 },
-          768: { slidesPerView: 2, spaceBetween: 20 },
-          1024: { slidesPerView: 3, spaceBetween: 30 }
-        }
-      });
+      ensureSwiperAssets().then(() => {
+        if (!window.Swiper) return;
+        reviewsSwiperInstance = new Swiper(container, {
+          loop: true,
+          autoplay: {
+            delay: 3500,
+            disableOnInteraction: false
+          },
+          pagination: {
+            el: container.querySelector('.reviews-pagination'),
+            clickable: true
+          },
+          breakpoints: {
+            0: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 30 }
+          }
+        });
+      }).catch(() => {});
     }
 
     // ============================================================
@@ -2431,37 +2505,40 @@ Skin Doctor Riyadh
     function initCalendar() {
       const el = document.getElementById('calendar');
       if (!el || calendarInstance) return;
-      const events = [];
-      const today = new Date();
-      for (let i = 1; i <= 7; i++) {
-        const d = new Date(today);
-        d.setDate(d.getDate() + i);
-        if (i % 2 === 0) {
-          events.push({ title: 'متاح', start: d });
-        } else {
-          events.push({ title: 'محجوز', start: d, color: '#ef4444' });
+      ensureCalendarAssets().then(() => {
+        if (!window.FullCalendar || !window.FullCalendar.Calendar) return;
+        const events = [];
+        const today = new Date();
+        for (let i = 1; i <= 7; i++) {
+          const d = new Date(today);
+          d.setDate(d.getDate() + i);
+          if (i % 2 === 0) {
+            events.push({ title: 'متاح', start: d });
+          } else {
+            events.push({ title: 'محجوز', start: d, color: '#ef4444' });
+          }
         }
-      }
 
-      calendarInstance = new FullCalendar.Calendar(el, {
-        initialView: 'dayGridMonth',
-        locale: 'ar',
-        direction: 'rtl',
-        events: events,
-        headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek'
-        },
-        dateClick: function(info) {
-          alert(`تم اختيار: ${info.dateStr}\nيمكنك حجز هذا الموعد عبر الزر أدناه.`);
-          openBooking();
-        },
-        eventClick: function(info) {
-          alert(`الموعد: ${info.event.title}\nالتاريخ: ${info.event.start.toLocaleDateString()}`);
-        }
-      });
-      calendarInstance.render();
+        calendarInstance = new FullCalendar.Calendar(el, {
+          initialView: 'dayGridMonth',
+          locale: 'ar',
+          direction: 'rtl',
+          events: events,
+          headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek'
+          },
+          dateClick: function(info) {
+            alert(`تم اختيار: ${info.dateStr}\nيمكنك حجز هذا الموعد عبر الزر أدناه.`);
+            openBooking();
+          },
+          eventClick: function(info) {
+            alert(`الموعد: ${info.event.title}\nالتاريخ: ${info.event.start.toLocaleDateString()}`);
+          }
+        });
+        calendarInstance.render();
+      }).catch(() => {});
     }
 
     // ============================================================
@@ -2481,18 +2558,32 @@ Skin Doctor Riyadh
     // ============================================================
     function initProgress() {
       const bar = document.getElementById('progressBar');
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const st = window.scrollY;
-        const dh = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.width = dh > 0 ? (st / dh) * 100 + '%' : '0%';
-      });
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            const st = window.scrollY;
+            const dh = document.documentElement.scrollHeight - window.innerHeight;
+            if (bar) bar.style.width = dh > 0 ? (st / dh) * 100 + '%' : '0%';
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
     }
 
     function initScrollTop() {
       const btn = document.getElementById('scrollTop');
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        btn.classList.toggle('visible', window.scrollY > 400);
-      });
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            if (btn) btn.classList.toggle('visible', window.scrollY > 400);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
     }
 
     // ============================================================
@@ -2532,16 +2623,36 @@ Skin Doctor Riyadh
       const hash = location.hash.substring(1) || 'home';
       navigate(hash);
       initBA();
-      initReveal();
       initProgress();
       initScrollTop();
-      animateCounters();
-      if (document.getElementById('services').classList.contains('active')) setTimeout(initSwiper, 200);
-      if (document.getElementById('contact').classList.contains('active')) setTimeout(initCalendar, 300);
-      initReviewsSwiper();
-      document.querySelectorAll('.reveal').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
-      });
+      if (document.getElementById('media')) {
+        const mediaObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              ensureInstagramEmbed().catch(() => {});
+              observer.disconnect();
+            }
+          });
+        }, { rootMargin: '200px' });
+        mediaObserver.observe(document.getElementById('media'));
+      }
+
+      const runNonCritical = () => {
+        initReveal();
+        animateCounters();
+        if (document.getElementById('services').classList.contains('active')) setTimeout(initSwiper, 200);
+        if (document.getElementById('contact').classList.contains('active')) setTimeout(initCalendar, 300);
+        initReviewsSwiper();
+        document.querySelectorAll('.reveal').forEach(el => {
+          if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+        });
+      };
+
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(runNonCritical, { timeout: 1000 });
+      } else {
+        setTimeout(runNonCritical, 120);
+      }
     });
 
     window.addEventListener('hashchange', () => {
@@ -2555,6 +2666,5 @@ Skin Doctor Riyadh
     });
     contactObserver.observe(document.getElementById('contact'), { attributes: true, attributeFilter: ['class'] });
   </script>
-  <script async defer src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
