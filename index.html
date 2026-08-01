@@ -183,9 +183,6 @@ Skin Doctor Riyadh
       }
     }
   </script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
-<script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <style>
     /* ===== BASE ===== */
     *,
@@ -805,7 +802,6 @@ Skin Doctor Riyadh
         <a href="#home" onclick="navigate('home')" class="nav-link text-slate-700 dark:text-slate-200 hover:text-gold transition"><i class="fas fa-home"></i> الرئيسية</a>
         <a href="#services" onclick="navigate('services')" class="nav-link text-slate-700 dark:text-slate-200 hover:text-gold transition"><i class="fas fa-stethoscope"></i> خدماتنا الطبية </a>
         <a href="#media" onclick="navigate('media')" class="nav-link text-slate-700 dark:text-slate-200 hover:text-gold transition"><i class="fas fa-photo-video"></i> مكتبة الوسائط</a>
-        <a href="#gallery" onclick="navigate('gallery')" class="nav-link text-slate-700 dark:text-slate-200 hover:text-gold transition"><i class="fas fa-images"></i> <span>شاهد الفرق</span> </a>
         <a href="#faq" onclick="navigate('faq')" class="nav-link text-slate-700 dark:text-slate-200 hover:text-gold transition"> <i class="fas fa-question-circle"></i> <span>الأسئلة</span></a>
         <a href="#reviews" onclick="navigate('reviews')" class="nav-link text-slate-700 dark:text-slate-200 hover:text-gold transition">التقييمات</a>
         <a href="#contact" onclick="navigate('contact')" class="nav-link text-slate-700 dark:text-slate-200 hover:text-gold transition">تواصل</a>
@@ -830,7 +826,6 @@ Skin Doctor Riyadh
       <a href="#home" onclick="navigate('home'); closeMobile();"><i class="fas fa-home"></i> الرئيسية</a>
       <a href="#services" onclick="navigate('services'); closeMobile();"><i class="fas fa-stethoscope"></i> خدماتنا الطبية </a>
       <a href="#media" onclick="navigate('media'); closeMobile();"><i class="fas fa-photo-video"></i> مكتبة الوسائط</a>
-<a href="#gallery" onclick="navigate('gallery'); closeMobile();" class="nav-link text-slate-700 dark:text-slate-200 hover:text-gold transition"> <i class="fas fa-eye"></i> <span>شاهد الفرق</span></a>
     <a href="#faq" onclick="navigate('faq'); closeMobile();"><i class="fas fa-question-circle"></i> الأسئلة</a>
       <a href="#reviews" onclick="navigate('reviews'); closeMobile();"><i class="fas fa-star"></i> التقييمات</a>
       <a href="#contact" onclick="navigate('contact'); closeMobile();"><i class="fas fa-share-alt"></i> التواصل</a>
@@ -845,7 +840,6 @@ Skin Doctor Riyadh
   <nav class="bottom-nav md:hidden">
     <a href="#home" onclick="navigate('home')" class="active"><i class="fas fa-home"></i><span>الرئيسية</span></a>
     <a href="#services" onclick="navigate('services')"><i class="fas fa-stethoscope"></i><span>خدماتنا الطبية</span></a>
-    <a href="#gallery" onclick="navigate('gallery')"><i class="fas fa-images"></i><span>النتائج</span></a>
     <a href="#contact" onclick="navigate('contact')"><i class="fas fa-phone"></i><span>تواصل</span></a>
     <a href="#" onclick="openBooking(); return false;"><i class="fas fa-calendar-check text-gold"></i><span>حجز</span></a>
   </nav>
@@ -1138,9 +1132,9 @@ Skin Doctor Riyadh
             </div>
           </div>
         </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination services-pagination"></div>
+        <div class="swiper-button-prev services-button-prev"></div>
+        <div class="swiper-button-next services-button-next"></div>
       </div>
 
       <div class="mt-6 bg-gold/5 p-4 rounded-2xl border border-gold/10 text-sm text-slate-600 dark:text-slate-300 text-center shadow-md">
@@ -1148,168 +1142,604 @@ Skin Doctor Riyadh
       </div>
     </section>
 
-    <!-- ===== MEDIA & TESTIMONIALS  === -->
-    <section id="media" class="page-section py-16 px-4 max-w-7xl mx-auto">
-      <div class="text-center mb-12">
+ <!-- ============================================================
+     قسم مكتبة الوسائط - سلايدرات احترافية (محدث)
+     ============================================================ -->
+<section id="media" class="page-section py-16 px-4 max-w-7xl mx-auto">
+
+    <!-- ====== HEADER ====== -->
+    <div class="text-center mb-12">
         <div class="inline-flex items-center gap-2 bg-rose-50 dark:bg-rose-900/20 text-rose-600 dark:text-rose-300 px-4 py-2 rounded-full text-sm font-bold mb-4">
-          <i class="fas fa-photo-video"></i> مكتبة الوسائط
+            <i class="fas fa-photo-video"></i> مكتبة الوسائط
         </div>
         <h2 class="text-4xl font-extrabold text-navy dark:text-white">فيديوهات وتجارب مرضانا</h2>
         <p class="text-slate-500 dark:text-slate-300 max-w-2xl mx-auto mt-2">شاهد أحدث الفيديوهات من منصات التواصل، واستمع لتجارب حقيقية لمرضانا.</p>
-      </div>
+    </div>
 
-      <!-- ==== فيديوهات منصات التواصل ==== -->
-      <div class="mb-16">
-        <h3 class="text-2xl font-bold text-navy dark:text-white text-center mb-6 flex items-center justify-center gap-2">
-          <i class="fas fa-share-alt text-gold"></i> منصات التواصل
-        </h3>
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- Snapchat -->
-          <div class="video-card">
-            <div class="bg-navy text-white p-4 flex items-center gap-2 font-bold">
-              <i class="fab fa-snapchat-ghost text-yellow-400 text-xl"></i> سناب شات
+    <!-- ============================================================
+         القسم الأول: فيديوهات تجارب المرضى (سلايدر تلقائي)
+         ============================================================ -->
+    <div class="mb-16">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-navy dark:text-white flex items-center gap-2">
+                <i class="fas fa-user-md text-gold"></i> تجارب مرضانا
+            </h3>
+            <!-- أزرار التنقل -->
+            <div class="flex gap-2">
+                <button id="testimonialPrev" class="slider-btn" aria-label="السابق">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button id="testimonialNext" class="slider-btn" aria-label="التالي">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
             </div>
-            <div class="aspect-[9/16] bg-slate-200 dark:bg-slate-700">
-              <a href="https://snapchat.com/t/o5Ln9Hzw" target="_blank" rel="noopener noreferrer" class="w-full h-full min-h-[280px] flex flex-col items-center justify-center gap-4 p-6 bg-gradient-to-b from-yellow-400/15 to-slate-200 dark:to-slate-800 text-center group transition hover:from-yellow-400/25">
-                <i class="fab fa-snapchat-ghost text-5xl text-yellow-400 group-hover:scale-110 transition-transform"></i>
-                <span class="font-bold text-navy dark:text-white">شاهد على سناب شات</span>
-                <span class="text-sm text-slate-500 dark:text-slate-400 max-w-[220px]">لا يمكن عرض سناب شات داخل الموقع — اضغط لفتح الفيديو في سناب شات</span>
-                <span class="inline-flex items-center gap-2 bg-yellow-400 text-slate-900 font-bold px-5 py-2 rounded-full text-sm shadow group-hover:scale-105 transition-transform"><i class="fab fa-snapchat"></i> فتح الرابط</span>
-              </a>
-            </div>
-          </div>
-          <!-- TikTok -->
-          <div class="video-card">
-            <div class="bg-navy text-white p-4 flex items-center gap-2 font-bold">
-              <i class="fab fa-tiktok text-xl"></i> تيك توك
-            </div>
-            <div class="aspect-[9/16] bg-slate-200 dark:bg-slate-700">
-              <iframe src="https://www.tiktok.com/embed/v2/7666065157373709586" class="w-full h-full" style="border:0;" allowfullscreen loading="lazy" title="فيديو تيك توك"></iframe>
-            </div>
-          </div>
-          <!-- Instagram -->
-          <div class="video-card">
-            <div class="bg-navy text-white p-4 flex items-center gap-2 font-bold">
-              <i class="fab fa-instagram text-xl"></i> انستغرام
-            </div>
-            <div class="aspect-[9/16] bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-              <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/Dax712qIQte/?igsh=bm4yYjk3MHd3ZTgy" data-instgrm-version="14" style="margin:0; width:100%;">
-              </blockquote>
-            </div>
-          </div>
         </div>
-      </div>
 
-      <!-- ==== فيديوهات تجارب المرضى ==== -->
-      <div>
-        <h3 class="text-2xl font-bold text-navy dark:text-white text-center mb-6 flex items-center justify-center gap-2">
+        <!-- سلايدر تجارب المرضى (مع autoplay) -->
+        <div class="relative overflow-hidden rounded-3xl">
+            <div id="testimonialSlider" class="flex transition-transform duration-700 ease-in-out" style="transform: translateX(0);">
 
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- فيديو 1 -->
-          <div class="glass-card p-4 rounded-3xl shadow-lg hover:shadow-xl transition">
-            <div class="relative aspect-video rounded-2xl overflow-hidden group">
-              <img src="https://drive.google.com/thumbnail?id=1W4Q9NXSF7cfQI0kdofzWobuaH0uHQk1x" alt="فيديو 1" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
-              <button class="absolute inset-0 flex items-center justify-center text-6xl text-gold hover:text-yellow-400 transition group-hover:scale-110" onclick="playVideo(this, 'https://drive.google.com/file/d/1W4Q9NXSF7cfQI0kdofzWobuaH0uHQk1x/preview')" aria-label="تشغيل الفيديو">
-                <i class="fas fa-play-circle"></i>
-              </button>
-            </div>
-            <p class="mt-3 font-bold text-navy dark:text-white"> </p>
-          </div>
-          <!-- فيديو 2 -->
-          <div class="glass-card p-4 rounded-3xl shadow-lg hover:shadow-xl transition">
-            <div class="relative aspect-video rounded-2xl overflow-hidden group">
-              <img src="https://drive.google.com/thumbnail?id=1WdgX8niailGHzUXEE0DcpiHrTJo2nlsj" alt="فيديو 2" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
-              <button class="absolute inset-0 flex items-center justify-center text-6xl text-gold hover:text-yellow-400 transition group-hover:scale-110" onclick="playVideo(this, 'https://drive.google.com/file/d/1WdgX8niailGHzUXEE0DcpiHrTJo2nlsj/preview')" aria-label="تشغيل الفيديو">
-                <i class="fas fa-play-circle"></i>
-              </button>
-            </div>
-            <p class="mt-3 font-bold text-navy dark:text-white"> </p>
-          </div>
-          <!-- فيديو 3 -->
-          <div class="glass-card p-4 rounded-3xl shadow-lg hover:shadow-xl transition">
-            <div class="relative aspect-video rounded-2xl overflow-hidden group">
-              <img src="https://drive.google.com/thumbnail?id=1G5DIaQGGsqzxSHq-2l1UqSlzS68FMZER" alt="فيديو 3" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
-              <button class="absolute inset-0 flex items-center justify-center text-6xl text-gold hover:text-yellow-400 transition group-hover:scale-110" onclick="playVideo(this, 'https://drive.google.com/file/d/1G5DIaQGGsqzxSHq-2l1UqSlzS68FMZER/preview')" aria-label="تشغيل الفيديو">
-                <i class="fas fa-play-circle"></i>
-              </button>
-            </div>
-            <p class="mt-3 font-bold text-navy dark:text-white"></p>
-          </div>
-          <!-- فيديو 4 -->
-          <div class="glass-card p-4 rounded-3xl shadow-lg hover:shadow-xl transition">
-            <div class="relative aspect-video rounded-2xl overflow-hidden group">
-              <img src="https://drive.google.com/thumbnail?id=1H0ITURU6QMm2Pv8P6mhe1I3s39UIZjOs" alt="فيديو 4" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
-              <button class="absolute inset-0 flex items-center justify-center text-6xl text-gold hover:text-yellow-400 transition group-hover:scale-110" onclick="playVideo(this, 'https://drive.google.com/file/d/1H0ITURU6QMm2Pv8P6mhe1I3s39UIZjOs/preview')" aria-label="تشغيل الفيديو">
-                <i class="fas fa-play-circle"></i>
-              </button>
-            </div>
-            <p class="mt-3 font-bold text-navy dark:text-white"> </p>
-          </div>
-          <!-- فيديو 5 -->
-          <div class="glass-card p-4 rounded-3xl shadow-lg hover:shadow-xl transition">
-            <div class="relative aspect-video rounded-2xl overflow-hidden group">
-              <img src="https://drive.google.com/thumbnail?id=1NPzvc54mypHz2l1yiTanb1YombuBZy6v" alt="فيديو 5" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
-              <button class="absolute inset-0 flex items-center justify-center text-6xl text-gold hover:text-yellow-400 transition group-hover:scale-110" onclick="playVideo(this, 'https://drive.google.com/file/d/1NPzvc54mypHz2l1yiTanb1YombuBZy6v/preview')" aria-label="تشغيل الفيديو">
-                <i class="fas fa-play-circle"></i>
-              </button>
-            </div>
-            <p class="mt-3 font-bold text-navy dark:text-white"> </p>
-          </div>
-          <!-- فيديو 6 -->
-          <div class="glass-card p-4 rounded-3xl shadow-lg hover:shadow-xl transition">
-            <div class="relative aspect-video rounded-2xl overflow-hidden group">
-              <img src="https://drive.google.com/thumbnail?id=1Reti2h7wshZYhjNx87Is-u7SZFMllq4Z" alt="فيديو 6" class="w-full h-full object-cover rounded-2xl" loading="lazy" />
-              <button class="absolute inset-0 flex items-center justify-center text-6xl text-gold hover:text-yellow-400 transition group-hover:scale-110" onclick="playVideo(this, 'https://drive.google.com/file/d/1Reti2h7wshZYhjNx87Is-u7SZFMllq4Z/preview')" aria-label="تشغيل الفيديو">
-                <i class="fas fa-play-circle"></i>
-              </button>
-            </div>
-            <p class="mt-3 font-bold text-navy dark:text-white"> </p>
-          </div>
+                <!-- بطاقة 1 -->
+                <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
+                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
+                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                            <img src="https://drive.google.com/thumbnail?id=1W4Q9NXSF7cfQI0kdofzWobuaH0uHQk1x"
+                                 alt="فيديو تجربة مريض"
+                                 class="w-full h-full object-cover"
+                                 loading="lazy" />
+                            <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
+                                    onclick="playVideo(this, 'https://drive.google.com/file/d/1W4Q9NXSF7cfQI0kdofzWobuaH0uHQk1x/preview')"
+                                    aria-label="تشغيل الفيديو">
+                                <i class="fas fa-play-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- بطاقة 2 -->
+                <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
+                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
+                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                            <img src="https://drive.google.com/thumbnail?id=1WdgX8niailGHzUXEE0DcpiHrTJo2nlsj"
+                                 alt="فيديو تجربة مريض"
+                                 class="w-full h-full object-cover"
+                                 loading="lazy" />
+                            <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
+                                    onclick="playVideo(this, 'https://drive.google.com/file/d/1WdgX8niailGHzUXEE0DcpiHrTJo2nlsj/preview')"
+                                    aria-label="تشغيل الفيديو">
+                                <i class="fas fa-play-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-                
-          
+                <!-- بطاقة 3 -->
+                <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
+                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
+                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                            <img src="https://drive.google.com/thumbnail?id=1G5DIaQGGsqzxSHq-2l1UqSlzS68FMZER"
+                                 alt="فيديو تجربة مريض"
+                                 class="w-full h-full object-cover"
+                                 loading="lazy" />
+                            <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
+                                    onclick="playVideo(this, 'https://drive.google.com/file/d/1G5DIaQGGsqzxSHq-2l1UqSlzS68FMZER/preview')"
+                                    aria-label="تشغيل الفيديو">
+                                <i class="fas fa-play-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- بطاقة 4 -->
+                <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
+                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
+                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                            <img src="https://drive.google.com/thumbnail?id=1H0ITURU6QMm2Pv8P6mhe1I3s39UIZjOs"
+                                 alt="فيديو تجربة مريض"
+                                 class="w-full h-full object-cover"
+                                 loading="lazy" />
+                            <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
+                                    onclick="playVideo(this, 'https://drive.google.com/file/d/1H0ITURU6QMm2Pv8P6mhe1I3s39UIZjOs/preview')"
+                                    aria-label="تشغيل الفيديو">
+                                <i class="fas fa-play-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- بطاقة 5 -->
+                <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
+                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
+                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                            <img src="https://drive.google.com/thumbnail?id=1NPzvc54mypHz2l1yiTanb1YombuBZy6v"
+                                 alt="فيديو تجربة مريض"
+                                 class="w-full h-full object-cover"
+                                 loading="lazy" />
+                            <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
+                                    onclick="playVideo(this, 'https://drive.google.com/file/d/1NPzvc54mypHz2l1yiTanb1YombuBZy6v/preview')"
+                                    aria-label="تشغيل الفيديو">
+                                <i class="fas fa-play-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- بطاقة 6 -->
+                <div class="min-w-full md:min-w-[50%] lg:min-w-[33.333%] p-2">
+                    <div class="glass-card p-3 sm:p-4 rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-2xl transition duration-300 bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm slide-card">
+                        <div class="relative aspect-video rounded-xl sm:rounded-2xl overflow-hidden group">
+                            <img src="https://drive.google.com/thumbnail?id=1Reti2h7wshZYhjNx87Is-u7SZFMllq4Z"
+                                 alt="فيديو تجربة مريض"
+                                 class="w-full h-full object-cover"
+                                 loading="lazy" />
+                            <button class="absolute inset-0 flex items-center justify-center text-5xl sm:text-6xl text-gold hover:text-yellow-400 transition play-btn"
+                                    onclick="playVideo(this, 'https://drive.google.com/file/d/1Reti2h7wshZYhjNx87Is-u7SZFMllq4Z/preview')"
+                                    aria-label="تشغيل الفيديو">
+                                <i class="fas fa-play-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
+            </div> <!-- نهاية الممر المتحرك -->
+        </div> <!-- نهاية الحاوية -->
+
+        <!-- نقاط التقدم لتجارب المرضى -->
+        <div class="flex justify-center gap-2 mt-4" id="testimonialDots">
+            <button class="dot active" data-index="0"></button>
+            <button class="dot" data-index="1"></button>
+            <button class="dot" data-index="2"></button>
+            <button class="dot" data-index="3"></button>
+            <button class="dot" data-index="4"></button>
+            <button class="dot" data-index="5"></button>
         </div>
-      </div>
-    </section>
+    </div>
 
-    <!-- ===== GALLERY (Before/After) ===== -->
-    <section id="gallery" class="page-section py-16 px-4 max-w-7xl mx-auto">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-bold mb-4"><i class="fas fa-images"></i> نتائج حقيقية</div>
-        <h2 class="text-4xl font-extrabold text-navy dark:text-white">شاهد الفرق</h2>
-        <p class="text-slate-500 dark:text-slate-300 max-w-2xl mx-auto mt-2">شاهد الفرق بنفسك من خلال صور حالات حقيقية.</p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="glass-card rounded-3xl overflow-hidden">
-          <div class="relative h-80 ba-slider">
-            <img src="Botox Forehead – Before.png" class="absolute inset-0 w-full h-full object-cover" alt="قبل البوتكس" loading="lazy" />
-            <div class="ba-after"><img src="Botox Forehead –After.png" class="absolute inset-0 w-full h-full object-cover" alt="بعد البوتكس" loading="lazy" /></div>
-            <div class="ba-handle"></div>
-          </div>
-          <div class="p-5 text-center">
-            <h4 class="font-bold text-navy dark:text-white">تنعيم تجاعيد الجبهة</h4>
-            <p class="text-sm text-slate-500">نتيجة جلسة بوتوكس واحدة</p>
-          </div>
+    <!-- ============================================================
+         القسم الثاني: فيديوهات منصات التواصل (سلايدر)
+         ============================================================ -->
+    <div class="mb-16">
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-navy dark:text-white flex items-center gap-2">
+                <i class="fas fa-share-alt text-gold"></i> منصات التواصل
+            </h3>
+            <!-- أزرار التنقل -->
+            <div class="flex gap-2">
+                <button id="socialPrev" class="slider-btn" aria-label="السابق">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <button id="socialNext" class="slider-btn" aria-label="التالي">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+            </div>
         </div>
-        <div class="glass-card rounded-3xl overflow-hidden">
-          <div class="relative h-80 ba-slider">
-            <img src="Lip Filler_ Before.png" class="absolute inset-0 w-full h-full object-cover" alt="قبل الفيلر" loading="lazy" />
-            <div class="ba-after"><img src="Lip Filler –After.png" class="absolute inset-0 w-full h-full object-cover" alt="بعد الفيلر" loading="lazy" /></div>
-            <div class="ba-handle"></div>
-          </div>
-          <div class="p-5 text-center">
-            <h4 class="font-bold text-navy dark:text-white">تحديد وامتلاء الشفايف</h4>
-            <p class="text-sm text-slate-500">نتيجة فيلر حمض الهيالورونيك</p>
-          </div>
+
+        <!-- حاوية السلايدر (تمرير أفقي) -->
+        <div id="socialSlider" class="relative overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory flex gap-4 pb-4 hide-scrollbar"
+             style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;">
+
+            <!-- بطاقة 1: سناب شات (قديم) -->
+            <div class="snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] bg-white dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 dark:from-yellow-600 dark:to-yellow-700 p-3 flex items-center gap-2 font-bold text-white">
+                    <i class="fab fa-snapchat-ghost text-xl"></i>
+                    <span class="text-sm">سناب شات</span>
+                </div>
+                <div class="aspect-[4/3] bg-slate-200 dark:bg-slate-700">
+                    <a href="https://snapchat.com/t/o5Ln9Hzw" target="_blank" rel="noopener noreferrer"
+                       class="w-full h-full flex flex-col items-center justify-center gap-2 p-4
+                              bg-gradient-to-b from-yellow-400/10 to-slate-200 dark:to-slate-800
+                              text-center group transition hover:from-yellow-400/20">
+                        <i class="fab fa-snapchat-ghost text-4xl text-yellow-400 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-navy dark:text-white text-sm">شاهد على سناب شات</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">اضغط لفتح التطبيق</span>
+                        <span class="inline-flex items-center gap-1 bg-yellow-400 text-slate-900 font-bold px-3 py-1 rounded-full text-xs shadow group-hover:scale-105 transition-transform">
+                            <i class="fab fa-snapchat"></i> فتح
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- بطاقة 2: تيك توك (قديم) -->
+            <div class="snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] bg-white dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="bg-gradient-to-r from-black to-gray-800 dark:from-gray-900 dark:to-black p-3 flex items-center gap-2 font-bold text-white">
+                    <i class="fab fa-tiktok text-xl"></i>
+                    <span class="text-sm">تيك توك</span>
+                </div>
+                <div class="aspect-[4/3] bg-slate-200 dark:bg-slate-700">
+                    <iframe src="https://www.tiktok.com/embed/v2/7666065157373709586"
+                            class="w-full h-full" style="border:0;"
+                            allowfullscreen loading="lazy"
+                            title="فيديو تيك توك"></iframe>
+                </div>
+            </div>
+
+            <!-- بطاقة 3: إنستغرام (قديم) -->
+            <div class="snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] bg-white dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-3 flex items-center gap-2 font-bold text-white">
+                    <i class="fab fa-instagram text-xl"></i>
+                    <span class="text-sm">إنستغرام</span>
+                </div>
+                <div class="aspect-[4/3] bg-slate-200 dark:bg-slate-700 flex items-center justify-center p-1">
+                    <blockquote class="instagram-media w-full"
+                                 data-instgrm-permalink="https://www.instagram.com/reel/Dax712qIQte/?igsh=bm4yYjk3MHd3ZTgy"
+                                 data-instgrm-version="14"
+                                 style="margin:0; width:100%;">
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- بطاقة 4: سناب شات (جديد) -->
+            <div class="snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] bg-white dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="bg-gradient-to-r from-yellow-500 to-yellow-600 dark:from-yellow-600 dark:to-yellow-700 p-3 flex items-center gap-2 font-bold text-white">
+                    <i class="fab fa-snapchat-ghost text-xl"></i>
+                    <span class="text-sm">سناب شات</span>
+                </div>
+                <div class="aspect-[4/3] bg-slate-200 dark:bg-slate-700">
+                    <a href="https://snapchat.com/t/YMyNke9R" target="_blank" rel="noopener noreferrer"
+                       class="w-full h-full flex flex-col items-center justify-center gap-2 p-4
+                              bg-gradient-to-b from-yellow-400/10 to-slate-200 dark:to-slate-800
+                              text-center group transition hover:from-yellow-400/20">
+                        <i class="fab fa-snapchat-ghost text-4xl text-yellow-400 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-navy dark:text-white text-sm">شاهد على سناب شات</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">اضغط لفتح التطبيق</span>
+                        <span class="inline-flex items-center gap-1 bg-yellow-400 text-slate-900 font-bold px-3 py-1 rounded-full text-xs shadow group-hover:scale-105 transition-transform">
+                            <i class="fab fa-snapchat"></i> فتح
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- بطاقة 5: تيك توك (جديد - رابط خارجي) -->
+            <div class="snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] bg-white dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="bg-gradient-to-r from-black to-gray-800 dark:from-gray-900 dark:to-black p-3 flex items-center gap-2 font-bold text-white">
+                    <i class="fab fa-tiktok text-xl"></i>
+                    <span class="text-sm">تيك توك</span>
+                </div>
+                <div class="aspect-[4/3] bg-slate-200 dark:bg-slate-700 flex items-center justify-center p-3">
+                    <a href="https://vt.tiktok.com/ZS4BHwW2n/" target="_blank" rel="noopener noreferrer"
+                       class="w-full h-full flex flex-col items-center justify-center gap-2
+                              bg-gradient-to-b from-black/5 to-slate-200 dark:to-slate-800
+                              text-center group transition hover:from-black/10 rounded-xl">
+                        <i class="fab fa-tiktok text-4xl text-black dark:text-white group-hover:scale-110 transition-transform"></i>
+                        <span class="font-bold text-navy dark:text-white text-sm">شاهد على تيك توك</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">اضغط لفتح المنصة</span>
+                        <span class="inline-flex items-center gap-1 bg-black dark:bg-white text-white dark:text-black font-bold px-3 py-1 rounded-full text-xs shadow group-hover:scale-105 transition-transform">
+                            <i class="fab fa-tiktok"></i> فتح
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- بطاقة 6: إنستغرام (جديد) -->
+            <div class="snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] bg-white dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 p-3 flex items-center gap-2 font-bold text-white">
+                    <i class="fab fa-instagram text-xl"></i>
+                    <span class="text-sm">إنستغرام</span>
+                </div>
+                <div class="aspect-[4/3] bg-slate-200 dark:bg-slate-700 flex items-center justify-center p-1">
+                    <blockquote class="instagram-media w-full"
+                                 data-instgrm-permalink="https://www.instagram.com/reel/DXKNWi4iHDt/"
+                                 data-instgrm-version="14"
+                                 style="margin:0; width:100%;">
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- بطاقة 7: أحدث الفيديوهات الجديدة -->
+            <div class="snap-center shrink-0 w-[260px] sm:w-[280px] md:w-[300px] bg-white dark:bg-slate-800 rounded-2xl shadow-md overflow-hidden transition hover:shadow-xl hover:-translate-y-1 duration-300">
+                <div class="bg-gradient-to-r from-rose-500 to-orange-500 p-3 flex items-center gap-2 font-bold text-white">
+                    <i class="fas fa-play-circle text-xl"></i>
+                    <span class="text-sm">أحدث الفيديوهات</span>
+                </div>
+                <div class="p-4 flex flex-col gap-3 bg-gradient-to-b from-white to-slate-50 dark:from-slate-800 dark:to-slate-900 h-full">
+                    <p class="text-sm font-bold text-navy dark:text-white">#تنحيف_الجسم #الحقن_التجميلي #جلدية_و_تجميل #الحفاظ_على_البشرة</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">شاهد أحدث المحتوى الطبي والتجميلي من الدكتور أحمد على تيك توك وإنستغرام.</p>
+                    <div class="flex flex-col gap-2 mt-auto">
+                        <a href="https://www.tiktok.com/@dr.ahmedalmohammed/video/7616435131909278994?_r=1&_t=ZS-98WyhQn2O4y" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-xl bg-slate-900 text-white font-bold px-3 py-2.5 text-sm hover:scale-[1.01] transition">
+                            <i class="fab fa-tiktok"></i> مشاهدة على تيك توك
+                        </a>
+                        <a href="https://www.instagram.com/reel/DXKNWi4iHDt/?igsh=MXZsMmVuMXFxNTl6bg==" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-3 py-2.5 text-sm hover:scale-[1.01] transition">
+                            <i class="fab fa-instagram"></i> مشاهدة على إنستغرام
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- نهاية حاوية السلايدر -->
+
+        <!-- نقاط التقدم لمنصات التواصل -->
+        <div class="flex justify-center gap-2 mt-4" id="socialDots">
+            <button class="dot active" data-index="0"></button>
+            <button class="dot" data-index="1"></button>
+            <button class="dot" data-index="2"></button>
+            <button class="dot" data-index="3"></button>
+            <button class="dot" data-index="4"></button>
+            <button class="dot" data-index="5"></button>
+            <button class="dot" data-index="6"></button>
         </div>
-      </div>
-    </section>
+    </div>
+
+    <!-- ============================================================
+         القسم الثالث: شاهد الفرق (قبل/بعد)
+         ============================================================ -->
+    <div class="mt-16">
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-full text-sm font-bold mb-4">
+                <i class="fas fa-images"></i> نتائج حقيقية
+            </div>
+            <h3 class="text-2xl font-bold text-navy dark:text-white">شاهد الفرق</h3>
+            <p class="text-slate-500 dark:text-slate-300 max-w-2xl mx-auto mt-2">شاهد الفرق بنفسك من خلال صور حالات حقيقية قبل وبعد.</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass-card rounded-3xl overflow-hidden">
+                <div class="relative h-80 ba-slider">
+                    <img src="Botox Forehead – Before.png" class="absolute inset-0 w-full h-full object-cover" alt="قبل البوتكس" loading="lazy" />
+                    <div class="ba-after"><img src="Botox Forehead –After.png" class="absolute inset-0 w-full h-full object-cover" alt="بعد البوتكس" loading="lazy" /></div>
+                    <div class="ba-handle"></div>
+                </div>
+                <div class="p-5 text-center">
+                    <h4 class="font-bold text-navy dark:text-white">تنعيم تجاعيد الجبهة</h4>
+                    <p class="text-sm text-slate-500">نتيجة جلسة بوتوكس واحدة</p>
+                </div>
+            </div>
+            <div class="glass-card rounded-3xl overflow-hidden">
+                <div class="relative h-80 ba-slider">
+                    <img src="Lip Filler_ Before.png" class="absolute inset-0 w-full h-full object-cover" alt="قبل الفيلر" loading="lazy" />
+                    <div class="ba-after"><img src="Lip Filler –After.png" class="absolute inset-0 w-full h-full object-cover" alt="بعد الفيلر" loading="lazy" /></div>
+                    <div class="ba-handle"></div>
+                </div>
+                <div class="p-5 text-center">
+                    <h4 class="font-bold text-navy dark:text-white">تحديد وامتلاء الشفايف</h4>
+                    <p class="text-sm text-slate-500">نتيجة فيلر حمض الهيالورونيك</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- ============================================================
+     الأنماط المخصصة (CSS)
+     ============================================================ -->
+<style>
+    /* إخفاء شريط التمرير للسلايدر */
+    .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    /* أزرار التنقل */
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #1e293b;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        border: none;
+        font-size: 1rem;
+    }
+    .slider-btn:hover {
+        background: #c9a84c;
+        transform: scale(1.05);
+    }
+    .dark .slider-btn {
+        background: white;
+        color: #1e293b;
+    }
+    .dark .slider-btn:hover {
+        background: #c9a84c;
+        color: #1e293b;
+    }
+
+    /* نقاط التقدم */
+    .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #94a3b8;
+        transition: all 0.3s;
+        cursor: pointer;
+        border: none;
+        padding: 0;
+    }
+    .dot.active {
+        background: #c9a84c;
+        transform: scale(1.2);
+        width: 24px;
+        border-radius: 6px;
+    }
+    .dark .dot {
+        background: #475569;
+    }
+    .dark .dot.active {
+        background: #c9a84c;
+    }
+
+    /* تأثيرات البطاقات */
+    .slide-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .slide-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 30px -10px rgba(0,0,0,0.2);
+    }
+
+    /* زر التشغيل */
+    .play-btn {
+        transition: transform 0.3s;
+    }
+    .group:hover .play-btn {
+        transform: scale(1.1);
+    }
+
+    /* عكس اتجاه الأسهم في وضع RTL */
+    .slider-btn i {
+        transform: scaleX(-1);
+    }
+</style>
+
+<!-- ============================================================
+     جافا سكريبت للسلايدرات
+     ============================================================ -->
+<script>
+    (function() {
+
+        // ==============================
+        // 1. سلايدر منصات التواصل (يدوي)
+        // ==============================
+        const socialSlider = document.getElementById('socialSlider');
+        const socialPrev = document.getElementById('socialPrev');
+        const socialNext = document.getElementById('socialNext');
+        const socialDots = document.querySelectorAll('#socialDots .dot');
+
+        if (socialSlider && socialPrev && socialNext) {
+            const updateSocialDots = () => {
+                const scrollLeft = socialSlider.scrollLeft;
+                const totalWidth = socialSlider.scrollWidth - socialSlider.clientWidth;
+                if (totalWidth <= 0) return;
+                const progress = scrollLeft / totalWidth;
+                const activeIndex = Math.round(progress * (socialDots.length - 1));
+                socialDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === activeIndex);
+                });
+            };
+
+            socialSlider.addEventListener('scroll', updateSocialDots);
+
+            const slideAmount = () => {
+                const card = socialSlider.querySelector('.snap-center');
+                if (!card) return 0;
+                return card.offsetWidth + 16; // 16 = gap-4
+            };
+
+            socialPrev.addEventListener('click', () => {
+                socialSlider.scrollBy({ left: -slideAmount(), behavior: 'smooth' });
+            });
+            socialNext.addEventListener('click', () => {
+                socialSlider.scrollBy({ left: slideAmount(), behavior: 'smooth' });
+            });
+
+            socialDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const totalWidth = socialSlider.scrollWidth - socialSlider.clientWidth;
+                    const target = (index / (socialDots.length - 1)) * totalWidth;
+                    socialSlider.scrollTo({ left: target, behavior: 'smooth' });
+                });
+            });
+
+            setTimeout(updateSocialDots, 100);
+        }
+
+        // ==============================
+        // 2. سلايدر تجارب المرضى (تلقائي)
+        // ==============================
+        const testimonialSlider = document.getElementById('testimonialSlider');
+        const testimonialPrev = document.getElementById('testimonialPrev');
+        const testimonialNext = document.getElementById('testimonialNext');
+        const testimonialDots = document.querySelectorAll('#testimonialDots .dot');
+        let currentIndex = 0;
+        let autoplayInterval = null;
+        const totalSlides = testimonialDots.length;
+
+        const getVisibleSlides = () => {
+            if (window.innerWidth >= 1024) return 3;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        };
+
+        const goToSlide = (index) => {
+            const visible = getVisibleSlides();
+            const maxIndex = Math.max(0, totalSlides - visible);
+            const safeIndex = Math.min(Math.max(index, 0), maxIndex);
+            currentIndex = safeIndex;
+            const offset = -safeIndex * (100 / visible);
+            testimonialSlider.style.transform = `translateX(${offset}%)`;
+            testimonialDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === safeIndex);
+            });
+        };
+
+        const nextSlide = () => {
+            const visible = getVisibleSlides();
+            const maxIndex = Math.max(0, totalSlides - visible);
+            if (currentIndex >= maxIndex) {
+                goToSlide(0);
+            } else {
+                goToSlide(currentIndex + 1);
+            }
+        };
+
+        const prevSlide = () => {
+            if (currentIndex <= 0) {
+                const visible = getVisibleSlides();
+                const maxIndex = Math.max(0, totalSlides - visible);
+                goToSlide(maxIndex);
+            } else {
+                goToSlide(currentIndex - 1);
+            }
+        };
+
+        const startAutoplay = () => {
+            if (autoplayInterval) clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(nextSlide, 4000);
+        };
+
+        const stopAutoplay = () => {
+            if (autoplayInterval) {
+                clearInterval(autoplayInterval);
+                autoplayInterval = null;
+            }
+        };
+
+        testimonialPrev.addEventListener('click', () => {
+            stopAutoplay();
+            prevSlide();
+            startAutoplay();
+        });
+        testimonialNext.addEventListener('click', () => {
+            stopAutoplay();
+            nextSlide();
+            startAutoplay();
+        });
+
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                stopAutoplay();
+                goToSlide(index);
+                startAutoplay();
+            });
+        });
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                goToSlide(currentIndex);
+            }, 200);
+        });
+
+        goToSlide(0);
+        startAutoplay();
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
+            }
+        });
+
+    })();
+</script>
 
     <!-- ===== FAQ ===== -->
     <section id="faq" class="page-section py-16 px-4 max-w-4xl mx-auto">
@@ -1496,8 +1926,7 @@ Skin Doctor Riyadh
 
 
     <!-- Pagination -->
-    <div class="swiper-pagination mt-6"></div>
-
+      <div class="swiper-pagination reviews-pagination mt-6"></div>
   </div>
 
 
@@ -1786,6 +2215,7 @@ Skin Doctor Riyadh
     // 2. SWIPER
     // ============================================================
     let swiperInstance = null;
+    let reviewsSwiperInstance = null;
 
     function initSwiper() {
       if (swiperInstance) return;
@@ -1796,11 +2226,39 @@ Skin Doctor Riyadh
         spaceBetween: 20,
         loop: true,
         autoplay: { delay: 3000, disableOnInteraction: false },
-        pagination: { el: '.swiper-pagination', clickable: true },
-        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        pagination: {
+          el: container.querySelector('.services-pagination'),
+          clickable: true
+        },
+        navigation: {
+          nextEl: container.querySelector('.services-button-next'),
+          prevEl: container.querySelector('.services-button-prev')
+        },
         breakpoints: {
           640: { slidesPerView: 2 },
           1024: { slidesPerView: 3 }
+        }
+      });
+    }
+
+    function initReviewsSwiper() {
+      if (reviewsSwiperInstance) return;
+      const container = document.querySelector('.reviewsSwiper');
+      if (!container) return;
+      reviewsSwiperInstance = new Swiper(container, {
+        loop: true,
+        autoplay: {
+          delay: 3500,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: container.querySelector('.reviews-pagination'),
+          clickable: true
+        },
+        breakpoints: {
+          0: { slidesPerView: 1, spaceBetween: 20 },
+          768: { slidesPerView: 2, spaceBetween: 20 },
+          1024: { slidesPerView: 3, spaceBetween: 30 }
         }
       });
     }
@@ -1839,11 +2297,19 @@ Skin Doctor Riyadh
     const WHATSAPP_NUMBER = '966509417955';
 
     function openBooking() {
-      document.getElementById('bookingModal').style.display = 'flex';
+      const modal = document.getElementById('bookingModal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
     }
 
     function closeBooking() {
-      document.getElementById('bookingModal').style.display = 'none';
+      const modal = document.getElementById('bookingModal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
     }
 
     function handleBooking(e) {
@@ -1939,51 +2405,26 @@ Skin Doctor Riyadh
     // 8. VIDEO TESTIMONIALS PLAYER
     // ============================================================
     function playVideo(btn, src) {
-      const card = btn.closest('.glass-card');
-      const container = card.querySelector('.relative');
-      if (!container) return;
-      container.innerHTML =
+      const modal = document.getElementById('videoModal');
+      const content = document.getElementById('videoModalContent');
+      if (!modal || !content) return;
+      content.innerHTML =
         `<iframe src="${src}" class="w-full h-full rounded-2xl" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>`;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideoModal() {
+      const modal = document.getElementById('videoModal');
+      const content = document.getElementById('videoModalContent');
+      if (!modal || !content) return;
+      modal.classList.add('hidden');
+      content.innerHTML = '';
+      document.body.style.overflow = '';
     }
 
     // ============================================================
-    // 9. REVIEWS
-    // ============================================================
-    let reviewRating = 5;
-
-    function setRating(val) {
-      reviewRating = val;
-      const stars = document.querySelectorAll('#ratingStars span');
-      stars.forEach((s, i) => {
-        s.textContent = i < val ? '★' : '☆';
-        s.style.color = i < val ? '#C9A84C' : '#CBD5E1';
-      });
-      document.getElementById('reviewRating').value = val;
-    }
-
-    function addReview(e) {
-      e.preventDefault();
-      const name = document.getElementById('reviewName').value.trim();
-      const text = document.getElementById('reviewText').value.trim();
-      if (!name || !text) return alert('يرجى ملء جميع الحقول');
-      const rating = parseInt(document.getElementById('reviewRating').value);
-      const div = document.createElement('div');
-      div.className = 'glass-card p-8 rounded-3xl text-center review-item';
-      div.innerHTML = `
-        <div class="text-yellow-400 text-2xl mb-3">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</div>
-        <p class="leading-relaxed">"${text}"</p>
-        <span class="font-bold text-gold mt-4 block">${name}</span>
-        <span class="text-xs text-slate-400">الآن</span>
-      `;
-      document.getElementById('reviewsGrid').prepend(div);
-      document.getElementById('reviewName').value = '';
-      document.getElementById('reviewText').value = '';
-      setRating(5);
-      alert('تم نشر تقييمك بنجاح!');
-    }
-
-    // ============================================================
-    // 10. CALENDAR
+    // 9. CALENDAR
     // ============================================================
     let calendarInstance = null;
 
@@ -2077,9 +2518,12 @@ Skin Doctor Riyadh
     // ============================================================
     // 14. NOTIFICATION
     // ============================================================
-    setTimeout(() => {
-      document.getElementById('notificationBar').classList.add('show');
-    }, 2000);
+    const notificationBar = document.getElementById('notificationBar');
+    if (notificationBar) {
+      setTimeout(() => {
+        notificationBar.classList.add('show');
+      }, 2000);
+    }
 
     // ============================================================
     // 15. LOAD
@@ -2094,6 +2538,7 @@ Skin Doctor Riyadh
       animateCounters();
       if (document.getElementById('services').classList.contains('active')) setTimeout(initSwiper, 200);
       if (document.getElementById('contact').classList.contains('active')) setTimeout(initCalendar, 300);
+      initReviewsSwiper();
       document.querySelectorAll('.reveal').forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
       });
@@ -2110,50 +2555,6 @@ Skin Doctor Riyadh
     });
     contactObserver.observe(document.getElementById('contact'), { attributes: true, attributeFilter: ['class'] });
   </script>
-
-  <script>
-
-window.addEventListener("load", function(){
-
-new Swiper(".reviewsSwiper", {
-
-loop:true,
-
-autoplay:{
-delay:3500,
-disableOnInteraction:false
-},
-
-pagination:{
-el:".swiper-pagination",
-clickable:true
-},
-
-
-breakpoints:{
-
-0:{
-slidesPerView:1,
-spaceBetween:20
-},
-
-768:{
-slidesPerView:2,
-spaceBetween:20
-},
-
-1024:{
-slidesPerView:3,
-spaceBetween:30
-}
-
-}
-
-});
-
-});
-
-</script>
-  <script async src="https://www.instagram.com/embed.js"></script>
+  <script async defer src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
