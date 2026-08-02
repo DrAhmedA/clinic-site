@@ -1801,53 +1801,226 @@ Skin Doctor Riyadh
 </script>
 
     <!-- ===== FAQ ===== -->
-    <section id="faq" class="page-section py-16 px-4 max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center gap-2 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-300 px-4 py-2 rounded-full text-sm font-bold mb-4"><i class="fas fa-question-circle"></i> الأسئلة الشائعة</div>
-        <h2 class="text-4xl font-extrabold text-navy dark:text-white">إجابات على استفساراتكم</h2>
-        <div class="max-w-md mx-auto mt-4">
-          <input type="text" id="faqSearch" placeholder="ابحث في الأسئلة..." class="w-full p-3 rounded-xl border border-slate-200/80 bg-white dark:bg-navy/50 dark:border-gold/10" oninput="filterFaq(this.value)" aria-label="بحث في الأسئلة الشائعة" />
-        </div>
-      </div>
-      <div class="space-y-4" id="faqContainer">
-        <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="بوتوكس مدة نتائج">
-          <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full font-bold text-lg text-navy dark:text-white text-right" aria-expanded="false">
-            <span>كم تستمر نتائج البوتوكس؟</span>
-            <i class="fas fa-chevron-down text-gold"></i>
-          </button>
-          <div class="faq-answer text-slate-600 dark:text-slate-300 leading-relaxed">تتراوح بين 4 إلى 6 أشهر، وتختلف حسب العمر ونوع الجلد والجرعة.</div>
-        </div>
-        <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="مورفيوس ألم">
-          <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full font-bold text-lg text-navy dark:text-white text-right" aria-expanded="false">
-            <span>هل إجراء المورفيوس مؤلم؟</span>
-            <i class="fas fa-chevron-down text-gold"></i>
-          </button>
-          <div class="faq-answer text-slate-600 dark:text-slate-300 leading-relaxed">يتم تخدير موضعي، ومعظم المرضى يصفون الإحساس بأنه خفيف جداً.</div>
-        </div>
-        <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="عودة عمل حقن">
-          <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full font-bold text-lg text-navy dark:text-white text-right" aria-expanded="false">
-            <span>متى يمكن العودة للعمل بعد الحقن؟</span>
-            <i class="fas fa-chevron-down text-gold"></i>
-          </button>
-          <div class="faq-answer text-slate-600 dark:text-slate-300 leading-relaxed">يمكن العودة فوراً، مع احمرار بسيط يزول خلال ساعات.</div>
-        </div>
-        <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="شعر تساقط تحضير">
-          <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full font-bold text-lg text-navy dark:text-white text-right" aria-expanded="false">
-            <span>كيف أستعد لعلاج تساقط الشعر؟</span>
-            <i class="fas fa-chevron-down text-gold"></i>
-          </button>
-          <div class="faq-answer text-slate-600 dark:text-slate-300 leading-relaxed">غسل الشعر جيداً وتجنب المنتجات الزيتية، وإخبار الطبيب بأي أدوية.</div>
-        </div>
-        <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="فيلر شفاه">
-          <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full font-bold text-lg text-navy dark:text-white text-right" aria-expanded="false">
-            <span>هل الفيلر آمن للشفاه؟</span>
-            <i class="fas fa-chevron-down text-gold"></i>
-          </button>
-          <div class="faq-answer text-slate-600 dark:text-slate-300 leading-relaxed">نعم، حمض الهيالورونيك المستخدم في الفيلر آمن وقابل للتحلل، ويتم بحرفية عالية.</div>
-        </div>
-      </div>
-    </section>
+     <!-- ===== FAQ ===== -->
+<section id="faq" class="page-section py-20 px-4 bg-gradient-to-b from-white to-slate-50 dark:from-navy dark:to-navy-dark">
+  <div class="max-w-5xl mx-auto">
 
+    <div class="text-center mb-14">
+      <div class="inline-flex items-center gap-2 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-600 dark:text-yellow-300 px-5 py-2 rounded-full text-sm font-bold mb-5">
+        <i class="fas fa-question-circle"></i>
+        الأسئلة الشائعة
+      </div>
+
+
+      <div class="max-w-xl mx-auto mt-8">
+        <input
+          type="text"
+          id="faqSearch"
+          placeholder="ابحث عن سؤال..."
+          class="w-full p-4 rounded-2xl border border-slate-200 bg-white dark:bg-navy/50 dark:border-gold/10 focus:ring-2 focus:ring-gold outline-none"
+          oninput="filterFaq(this.value)"
+          aria-label="بحث في الأسئلة الشائعة">
+      </div>
+    </div>
+
+    <div class="space-y-5" id="faqContainer">
+
+      <!-- بوتوكس -->
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="بوتوكس نتائج مدة">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>كم تستمر نتائج البوتوكس؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          تدوم النتائج عادةً بين 4 و6 أشهر وتختلف حسب طبيعة العضلات ونمط الحياة.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="بوتوكس ظهور نتائج">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>متى تظهر نتائج البوتوكس؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          تبدأ النتائج خلال 3 إلى 7 أيام وتظهر بشكلها النهائي خلال أسبوعين تقريباً.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="بوتوكس آمن">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>هل البوتوكس آمن؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          نعم، عند استخدام منتجات معتمدة وإجرائه بواسطة استشاري جلدية مؤهل.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="بوتوكس رياضة">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>هل يمكن ممارسة الرياضة بعد البوتوكس؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          يفضل تجنب التمارين الشاقة لمدة 24 ساعة بعد الجلسة.
+        </div>
+      </div>
+
+      <!-- فيلر -->
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="فيلر شفاه">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>هل الفيلر آمن؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          نعم، يتم استخدام مواد طبية معتمدة وآمنة عند إجرائه لدى طبيب مختص.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="فيلر يدوم">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>كم تدوم نتائج الفيلر؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          تدوم غالباً بين 8 و18 شهراً حسب نوع الفيلر والمنطقة المعالجة.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="فيلر تورم">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>هل يحدث تورم بعد الفيلر؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          قد يحدث تورم بسيط أو احمرار يختفي خلال أيام قليلة.
+        </div>
+      </div>
+
+      <!-- مورفيوس -->
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="مورفيوس جلسات">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>كم جلسة Morpheus8 أحتاج؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          يحدد الطبيب عدد الجلسات حسب الحالة، وغالباً من جلسة إلى ثلاث جلسات.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="مورفيوس نتائج">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>متى تظهر نتائج المورفيوس؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          يبدأ التحسن تدريجياً خلال أسابيع ويستمر إنتاج الكولاجين لعدة أشهر.
+        </div>
+      </div>
+
+      <!-- الجلدية -->
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="حب الشباب">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>هل يمكن علاج آثار حب الشباب؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          نعم، تختلف الخيارات العلاجية حسب نوع الندبات وتشمل الليزر والمورفيوس وتقنيات تحفيز الكولاجين.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="تصبغات كلف">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>هل يمكن علاج التصبغات والكلف؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          نعم، بعد التشخيص يتم اختيار الخطة العلاجية المناسبة لكل حالة.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="اكزيما">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>هل الأكزيما معدية؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          لا، الأكزيما ليست مرضاً معدياً ويمكن التحكم بأعراضها بالعلاج المناسب.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="صدفية">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>هل يمكن السيطرة على الصدفية؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          نعم، توجد خيارات علاجية متعددة تساعد في السيطرة على الأعراض وتحسين جودة الحياة.
+        </div>
+      </div>
+
+      <!-- الشعر -->
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="تساقط شعر">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>ما أفضل علاج لتساقط الشعر؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          يعتمد العلاج على سبب التساقط، لذلك تبدأ الخطة دائماً بالتشخيص الدقيق.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="بلازما شعر">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>هل البلازما تساعد على نمو الشعر؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          تساعد البلازما في تحفيز نمو الشعر وتقليل التساقط لدى الحالات المناسبة.
+        </div>
+      </div>
+
+      <!-- عامة -->
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="حجز موعد">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>كيف يمكن حجز موعد؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          يمكن حجز الموعد عبر الواتساب أو الاتصال المباشر بالعيادة.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="استشارة">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>ماذا أحضر معي في أول زيارة؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          يفضل إحضار التقارير الطبية السابقة، والأدوية المستخدمة، وأي نتائج تحاليل أو صور متعلقة بالحالة.
+        </div>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl faq-item" data-keywords="دكتور جلدية الرياض">
+        <button onclick="toggleFaq(this)" class="faq-toggle flex justify-between w-full text-right font-bold text-lg text-navy dark:text-white">
+          <span>متى يجب مراجعة استشاري جلدية؟</span>
+          <i class="fas fa-chevron-down text-gold"></i>
+        </button>
+        <div class="faq-answer text-slate-600 dark:text-slate-300 leading-8">
+          عند استمرار المشكلة الجلدية أو تكرارها أو عدم الاستجابة للعلاجات المنزلية، يُنصح بمراجعة استشاري جلدية لتقييم الحالة ووضع خطة علاج مناسبة.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
    <!-- ===== REVIEWS ===== -->
 <section id="reviews" class="page-section py-16 px-4 max-w-7xl mx-auto">
 
