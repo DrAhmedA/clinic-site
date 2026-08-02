@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://drahmeda.github.io/clinic-site/sitemap.xml
