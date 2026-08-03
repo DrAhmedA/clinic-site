@@ -618,6 +618,10 @@ Skin Doctor Riyadh
       -webkit-backdrop-filter: blur(8px);
     }
 
+    .services-swiper img {
+      cursor: zoom-in;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .hero-gradient {
@@ -2373,6 +2377,14 @@ Skin Doctor Riyadh
 
   </main>
 
+  <!-- ===== IMAGE MODAL ===== -->
+  <div id="serviceImageModal" class="fixed inset-0 z-[60] hidden items-center justify-center p-4 modal-overlay" onclick="if(event.target===this) closeServiceImage()">
+    <div class="relative max-w-5xl w-full mx-auto">
+      <button onclick="closeServiceImage()" class="absolute top-3 left-3 text-white text-3xl z-50 bg-black/30 rounded-full w-10 h-10 flex items-center justify-center" aria-label="إغلاق الصورة">&times;</button>
+      <img id="serviceImageModalContent" src="" alt="" class="w-full max-h-[85vh] object-contain rounded-3xl shadow-2xl border border-white/10 bg-white/90" />
+    </div>
+  </div>
+
   <!-- ===== BOOKING MODAL ===== -->
   <div id="bookingModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-overlay" onclick="if(event.target===this) closeBooking()">
     <div class="glass-card p-8 rounded-3xl max-w-md w-full relative shadow-2xl border-gold/30">
@@ -2678,6 +2690,35 @@ Skin Doctor Riyadh
       modal.style.display = 'none';
       document.body.style.overflow = '';
     }
+
+    function openServiceImage(src, alt = '') {
+      const modal = document.getElementById('serviceImageModal');
+      const content = document.getElementById('serviceImageModalContent');
+      if (!modal || !content) return;
+      content.src = src;
+      content.alt = alt;
+      modal.classList.remove('hidden');
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeServiceImage() {
+      const modal = document.getElementById('serviceImageModal');
+      const content = document.getElementById('serviceImageModalContent');
+      if (!modal || !content) return;
+      modal.classList.add('hidden');
+      modal.style.display = 'none';
+      content.src = '';
+      content.alt = '';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', (event) => {
+      const img = event.target.closest('.services-swiper .swiper-slide img');
+      if (!img) return;
+      event.preventDefault();
+      openServiceImage(img.src, img.alt || '');
+    });
 
     function handleBooking(e) {
       e.preventDefault();
